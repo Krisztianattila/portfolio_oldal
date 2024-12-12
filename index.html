@@ -4,60 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólió</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Alapvető stílusok */
+        /* Alapstílusok */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
+            background-color: #f0f4f8;
+            color: #2d3436;
             line-height: 1.6;
-            color: #333;
         }
 
+        /* Fejléc */
         header {
-            background-color: #333;
+            background-color: #0984e3;
             color: #fff;
-            padding: 1.5rem 0;
             text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         header p {
             font-size: 1.2rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
         }
 
-        /* Navigációs menü */
+        /* Navigáció */
         nav {
             display: flex;
             justify-content: center;
-            background-color: #444;
+            background-color: #0747a6;
+            padding: 0.75rem 0;
         }
 
         nav a {
             color: #fff;
             padding: 0.75rem 1.5rem;
             text-decoration: none;
-            font-size: 1rem;
+            font-weight: 400;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         nav a:hover {
-            background-color: #555;
+            background-color: #0862c3;
+            transform: scale(1.05);
         }
 
-        /* Fő tartalom */
+        /* Tartalom */
         .container {
-            width: 90%;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 2rem auto;
-            padding: 1rem;
+            padding: 0 1rem;
         }
 
         .intro {
@@ -66,85 +74,96 @@
         }
 
         .intro h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
             color: #333;
+            font-weight: 600;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #555;
         }
 
         /* Portfólió szekció */
         .portfolio {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            justify-content: space-between;
         }
 
         .project {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            width: calc(33% - 1rem);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project img {
-            width: 100%;
-            height: auto;
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         .project h3 {
-            padding: 1rem;
             font-size: 1.5rem;
             color: #333;
+            padding: 1rem;
+            background-color: #f5f6fa;
         }
 
         .project p {
-            padding: 0 1rem 1rem;
+            font-size: 1rem;
             color: #555;
+            padding: 0 1rem 1rem;
         }
 
-        /* Kapcsolat szekció */
+        .project a {
+            text-decoration: none;
+            color: #0984e3;
+            font-weight: 600;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        /* Kapcsolat */
         .contact {
             text-align: center;
-            padding: 2rem 0;
+            padding: 2rem 1rem;
+            background-color: #0747a6;
+            color: #fff;
         }
 
         .contact h2 {
             font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .contact p {
-            font-size: 1rem;
             margin-bottom: 1rem;
         }
 
         .contact a {
             display: inline-block;
             color: #fff;
-            background-color: #333;
+            background-color: #00b894;
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
             text-decoration: none;
+            font-size: 1rem;
             transition: background-color 0.3s ease;
         }
 
         .contact a:hover {
-            background-color: #444;
+            background-color: #55efc4;
         }
 
+        /* Lábléc */
         footer {
             text-align: center;
             padding: 1.5rem 0;
             background-color: #333;
             color: #fff;
-            margin-top: 2rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -171,39 +190,38 @@
     <!-- Portfólió -->
     <section id="portfolio" class="container portfolio">
         <h2>Projektjeim</h2>
-        
+
         <!-- Projekt 1 -->
         <div class="project">
             <h3><a href="index2.html">Projekt 1</a></h3>
             <p>Egy alap html oldal</p>
         </div>
-        
+
         <!-- Projekt 2 -->
         <div class="project">
             <h3><a href="bevasarlo.html">Projekt 2</a></h3>
             <p>Bevásárló lista projekt</p>
         </div>
 
+        <!-- Projekt 3 -->
         <div class="project">
             <h3><a href="https://krisztianattila.github.io/crypto/">Projekt 3</a></h3>
             <p>Profit kalkulátor</p>
         </div>
 
+        <!-- Projekt 4 -->
         <div class="project">
             <h3><a href="https://krisztianattila.github.io/frontendoldal/">Projekt 4</a></h3>
             <p>Frontend oldal</p>
         </div>
 
+        <!-- Projekt 5 -->
         <div class="project">
             <h3><a href="https://krisztianattila.github.io/eredmenyek/">Projekt 5</a></h3>
             <p>Eredmenyek.com oldal</p>
         </div>
 
     </section>
-    <!-- Lábléc -->
-    <footer>
-        <p>&copy; 2023 Portfólió - Minden jog fenntartva</p>
-    </footer>
 
 </body>
 </html>
