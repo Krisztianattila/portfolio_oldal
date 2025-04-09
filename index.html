@@ -4,229 +4,387 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólió</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Alapstílusok */
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --secondary-hover: #059669;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
         }
 
         body {
-            background-color: #f0f4f8;
-            color: #2d3436;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
 
-        /* Fejléc */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header styles */
         header {
-            background-color: #0984e3;
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
-            padding: 2rem 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
         }
 
         header p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-            font-weight: 300;
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
 
-        /* Navigáció */
+        /* Navigation */
         nav {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
             display: flex;
-            justify-content: center;
-            background-color: #0747a6;
-            padding: 0.75rem 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
 
         nav a {
-            color: #fff;
-            padding: 0.75rem 1.5rem;
+            color: var(--dark);
             text-decoration: none;
-            font-weight: 400;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #0862c3;
-            transform: scale(1.05);
+            color: var(--primary);
         }
 
-        /* Tartalom */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
         }
 
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Introduction section */
         .intro {
+            padding: 6rem 0;
             text-align: center;
-            margin-bottom: 2rem;
         }
 
-        .intro h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #333;
-            font-weight: 600;
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
         }
 
         .intro p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #555;
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
         }
 
-        /* Portfólió szekció */
+        /* Portfolio section */
+        .portfolio-section {
+            padding: 4rem 0 6rem;
+            background-color: var(--gray-light);
+        }
+
+        .portfolio-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
         .portfolio {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .project {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-image {
+            height: 180px;
+            background-color: var(--primary);
+            background-image: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project h3 {
-            font-size: 1.5rem;
-            color: #333;
-            padding: 1rem;
-            background-color: #f5f6fa;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
         .project p {
-            font-size: 1rem;
-            color: #555;
-            padding: 0 1rem 1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
-        .project a {
-            text-decoration: none;
-            color: #0984e3;
-            font-weight: 600;
-        }
-
-        .project a:hover {
-            text-decoration: underline;
-        }
-
-        /* Kapcsolat */
-        .contact {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: #0747a6;
-            color: #fff;
-        }
-
-        .contact h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact a {
+        .project-link {
             display: inline-block;
-            color: #fff;
-            background-color: #00b894;
             padding: 0.75rem 1.5rem;
-            border-radius: 5px;
+            background-color: var(--primary);
+            color: white;
             text-decoration: none;
-            font-size: 1rem;
+            border-radius: 6px;
+            font-weight: 500;
             transition: background-color 0.3s ease;
-        }
-
-        .contact a:hover {
-            background-color: #55efc4;
-        }
-
-        /* Lábléc */
-        footer {
             text-align: center;
-            padding: 1.5rem 0;
-            background-color: #333;
-            color: #fff;
-            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .portfolio {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 4rem 0 3rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Fejléc -->
-    <header>
-        <h1>Portfólióm</h1>
-        <p>Programozási projektjeim gyűjteménye</p>
-    </header>
-
-    <!-- Navigáció -->
+    <!-- Navigation -->
     <nav>
-        <a href="#bemutatkozas">Rólam</a>
-        <a href="#portfolio">Projektek</a>
+        <div class="nav-container container">
+            <a href="#" class="logo">Portfolio</a>
+            <div class="nav-links">
+                <a href="#bemutatkozas">Rólam</a>
+                <a href="#portfolio">Projektek</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Bemutatkozás -->
-    <section id="bemutatkozas" class="container intro">
-        <h2>Bemutatkozás</h2>
+    <!-- Header -->
+    <header>
+        <div class="header-content container">
+            <h1>Portfólióm</h1>
+            <p>Programozási projektjeim gyűjteménye</p>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section id="bemutatkozas" class="intro container">
+        <h2 class="section-title">Bemutatkozás</h2>
         <p>Üdvözöllek! Programozóként szenvedélyesen készítek projekteket, amikkel megoldásokat kínálok érdekes kihívásokra.</p>
     </section>
 
-    <!-- Portfólió -->
-    <section id="portfolio" class="container portfolio">
-        <h2>Projektjeim</h2>
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title portfolio-title">Projektjeim</h2>
+            <div class="portfolio">
+                <!-- Projekt 1 -->
+                <div class="project">
+                    <div class="project-image">P1</div>
+                    <div class="project-content">
+                        <h3>Projekt 1</h3>
+                        <p>Egy alap html oldal</p>
+                        <a href="index2.html" class="project-link">Megtekintés</a>
+                    </div>
+                </div>
 
-        <!-- Projekt 1 -->
-        <div class="project">
-            <h3><a href="index2.html">Projekt 1</a></h3>
-            <p>Egy alap html oldal</p>
+                <!-- Projekt 2 -->
+                <div class="project">
+                    <div class="project-image">P2</div>
+                    <div class="project-content">
+                        <h3>Projekt 2</h3>
+                        <p>Bevásárló lista projekt</p>
+                        <a href="bevasarlo.html" class="project-link">Megtekintés</a>
+                    </div>
+                </div>
+
+                <!-- Projekt 3 -->
+                <div class="project">
+                    <div class="project-image">P3</div>
+                    <div class="project-content">
+                        <h3>Projekt 3</h3>
+                        <p>Profit kalkulátor</p>
+                        <a href="https://krisztianattila.github.io/crypto/" class="project-link">Megtekintés</a>
+                    </div>
+                </div>
+
+                <!-- Projekt 4 -->
+                <div class="project">
+                    <div class="project-image">P4</div>
+                    <div class="project-content">
+                        <h3>Projekt 4</h3>
+                        <p>Frontend oldal</p>
+                        <a href="https://krisztianattila.github.io/frontendoldal/" class="project-link">Megtekintés</a>
+                    </div>
+                </div>
+
+                <!-- Projekt 5 -->
+                <div class="project">
+                    <div class="project-image">P5</div>
+                    <div class="project-content">
+                        <h3>Projekt 5</h3>
+                        <p>Eredmenyek.com oldal</p>
+                        <a href="https://krisztianattila.github.io/eredmenyek/" class="project-link">Megtekintés</a>
+                    </div>
+                </div>
+
+                <!-- Projekt 6 -->
+                <div class="project">
+                    <div class="project-image">P6</div>
+                    <div class="project-content">
+                        <h3>Projekt 6</h3>
+                        <p>Malomjáték</p>
+                        <a href="https://krisztianattila.github.io/Malomjatek/" class="project-link">Megtekintés</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Projekt 2 -->
-        <div class="project">
-            <h3><a href="bevasarlo.html">Projekt 2</a></h3>
-            <p>Bevásárló lista projekt</p>
-        </div>
-
-        <!-- Projekt 3 -->
-        <div class="project">
-            <h3><a href="https://krisztianattila.github.io/crypto/">Projekt 3</a></h3>
-            <p>Profit kalkulátor</p>
-        </div>
-
-        <!-- Projekt 4 -->
-        <div class="project">
-            <h3><a href="https://krisztianattila.github.io/frontendoldal/">Projekt 4</a></h3>
-            <p>Frontend oldal</p>
-        </div>
-
-        <!-- Projekt 5 -->
-        <div class="project">
-            <h3><a href="https://krisztianattila.github.io/eredmenyek/">Projekt 5</a></h3>
-            <p>Eredmenyek.com oldal</p>
-        </div>
-
-        <div class="project">
-            <h3><a href="https://krisztianattila.github.io/Malomjatek/">Projekt 6</a></h3>
-            <p>Malomjáték</p>
-        </div>
-
     </section>
-
 </body>
 </html>
